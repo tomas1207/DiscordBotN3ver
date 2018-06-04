@@ -26,7 +26,6 @@ namespace DiscordBot.Core
                 Interval = 10000,
                 AutoReset = true,
                 Enabled = true
-
             };
             Looping.Elapsed += OnTimerticked;
 
