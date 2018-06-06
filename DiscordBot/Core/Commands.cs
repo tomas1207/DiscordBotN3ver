@@ -16,6 +16,11 @@ namespace DiscordBot.Core
         {
             twich();
         }
+        [Command("Ping")]
+        public async Task ping()
+        {
+            Context.Channel.SendMessageAsync("Pong");
+        }
         //TODO: Add Falata a parte automatica e a parte dos outros menbros da team, a auto vai ser com uma var que ve o ultimo status da live para nao repitir avisos
         //Um for infinito para ficar sempre a ver as live, para o futoro o comando para iniciar o bloq de palavras
         //TODO:Add
