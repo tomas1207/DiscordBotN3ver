@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -30,12 +31,12 @@ namespace DiscordBot.Core
             Looping.Elapsed += OnTimerticked;
 
         }
-
+      
         private async static void  OnTimerticked(object sender, ElapsedEventArgs e)
         {
             
             for (int i = 0; i <= arruser.Length -1 ;i++) {
-                var json = new WebClient().DownloadString("https://api.twitch.tv/kraken/streams/"+ arruser[i]  + "?client_id=8e6fsz2mnoy60vh1frz7ac12bg2rr4");
+                var json = new WebClient().DownloadString("https://api.twitch.tv/kraken/streams/" + arruser[i]  + "?client_id=8e6fsz2mnoy60vh1frz7ac12bg2rr4");
                 var temp = JsonConvert.SerializeObject(json);
                 var _temp = JsonConvert.DeserializeObject<dynamic>(json);
               
@@ -49,9 +50,15 @@ namespace DiscordBot.Core
                             await channel.SendMessageAsync("@everyone Is now on stream " + arruser[i]);
                             await channel.SendMessageAsync("Link: " + arrLink[i]);
                             Islive[i] = false;
-                            }
-                           
+                            TwichtBot.path path = new TwichtBot.path();
+                           Process.Start(path.Path() + "/TwichtBot.exe");
+
+
+
+
                         }
+
+                    }
                         else
                         {
                             //await channel.SendMessageAsync("Nao esta " + arruser[i]);
@@ -68,3 +75,9 @@ namespace DiscordBot.Core
         }
     }
 
+namespace TwichtBot
+{
+    public class Program
+    {
+    }
+}
