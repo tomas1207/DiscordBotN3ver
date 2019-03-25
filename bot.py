@@ -5,7 +5,7 @@ import json
 import requests
 
 
-token = 'NDQ5MjE5NDI0MjgxNjkwMTE1.D3pLtQ.xP7jw81-2Oxx_KzQX8L8Mlvk8jg'
+token = ''
 
 bot = commands.Bot(command_prefix='!')
 
